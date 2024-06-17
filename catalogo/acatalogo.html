@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo</title>
+    <link rel="icon" type="image/jpg" href="image\BookHaven-removebg-preview.png"/>
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+        }
+
+        header {
+            background-color: #4466ff;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        h2 {
+            color: #1c0d3d;
+            margin: 20px 0;
+        }
+
+        p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .article-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .article {
+            width: calc(33.33% - 20px);
+            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f2f2f2;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        dl {
+            margin-bottom: 15px;
+        }
+
+        dt {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        th, td {
+            border: 1px solid #000000;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #807d7d;
+            color: #fff;
+        }
+
+        td:nth-child(even) {
+            background-color: #98a2ff;
+        }
+
+        td:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        tfoot {
+            background-color: #f2f2f2;
+        }
+
+        tfoot td {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .center-links {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .center-links a {
+            margin: 0 10px;
+            color: #4466ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        ul li::before {
+            content: "\1F4D6"; 
+            margin-right: 10px;
+        }
+        .btn-back {
+            display: block;
+            width: 120px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
+        .saga-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .saga {
+            background-color: #bcd7e9;
+            max-width: 300px;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(29, 65, 141, 0.719);
+        }
+        .saga h2, .saga p {
+            margin: 0;
+            color: #333;
+        }
+        /* Estilos para los botones */
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff; 
+    color: #fff; 
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s; 
+}
+
+button:hover {
+    background-color: #0056b3; }
+
+button:nth-of-type(1) {
+    background-color: #77baf0; 
+}
+
+body.dark-mode button {
+    background-color: #67acf1; /* Color de fondo en modo oscuro */
+    color: #fff; /* Color del texto en modo oscuro */
+}
+
+body.dark-mode button:hover {
+    background-color: #1797f8; 
+}
+.search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 300px;
+    margin: auto;
+}
+
+.search-form label {
+    font-size: 16px;
+    color: #333;
+}
+
+.search-form input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.search-form button {
+    align-self: center; /* Asegura que el botón esté centrado */
+}
+.download-btn {
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #3147aa, #1e1d79);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+        }
+        .download-btn:hover {
+            background: linear-gradient(45deg, #1e1d79, #3147aa);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+        /* Estilos únicos para los enlaces */
+.unique-link-1 {
+    color: rgb(110, 149, 255); /* Color de texto único */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Negrita */
+    /* Otros estilos únicos */
+}
+
+.unique-link-1:hover {
+    color: rgb(255, 255, 255); /* Color al pasar el ratón */
+}
+
+.unique-link-2 {
+    color: rgb(110, 149, 255); /* Color de texto único */
+    text-decoration: none; /* Sin subrayado */
+    font-style: italic; /* Cursiva */
+    /* Otros estilos únicos */
+}
+
+.unique-link-2:hover {
+    color: rgb(255, 255, 255); /* Color al pasar el ratón */
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Catálogo</h1>
+    </header>
+
+    <div class="dark-mode">
+        <div class="circle">
+            <ion-icon class="sun" name="sunny"></ion-icon>
+            <ion-icon class="moon" name="moon"></ion-icon>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script src="met.js"></script>
+
+    <div class="center-links">
+        <a href="\Proyecto_ADRIAN\proyecto\sagas\sagas.html">Colecciones</a>
+        <a href="\Proyecto_ADRIAN\proyecto\inicio\inicio.html">Regresar</a>
+    </div>
+    
+    
+
+    <section class="slider">
+        <img src="image\harryver.jpg" alt="Harry Potter">
+        <img src="image\seniorver.jpeg" alt="Senor de los anillos">
+        <img src="image\cronicaslunaresver.jpg" alt="Cronicas lunares">
+        <img src="image\mazerunnerver.webp" alt="Maze Runner">
+        <img src="image\juegosde;hambrever.jpg" alt="Juegos del hgambre">
+        <img src="image\eragonvert.webp" alt="Eragon">
+        <img src="image\image-1.jpg.jpg" alt="Si">
+        <img src="image\sagapersonaver.jpeg" alt="Saga Persona">
+    </section>
+    <center>
+        <br><br><br>
+        <form action="libros.php" method="POST" class="search-form">
+            <label for="id">Buscar libro por ID:</label>
+            <input type="number" name="id" id="id" required>
+            <center><button type="submit" name="buscar">Buscar</button></center>
+        </form>
+        <form action="libros.php" method="POST">
+            <br><br><br>
+            <button type="submit" name="mostrar_todos">Mostrar Todos los Libros</button>
+        </form>
+        <br><br>
+    </center>
+
+    <center>
+        <nav>
+            <p><a href="#post-1" class="unique-link-1">Recomendaciones</a></p>
+            <p><a href="#post-2" class="unique-link-2">Libros famosos</a></p>
+        </nav>
+    </center>
+    
+
+    <div class="article-container">
+        <div class="article">
+            <h2>Harry Potter y la cámara secreta</h2>
+            <img src="image\harrypotter2.jpg" width= 30% alt="Harry Potter y la cámara secreta">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Tras derrotar una vez más a lord Voldemort, su siniestro enemigo en Harry Potter y la piedra filosofal, Harry espera impaciente en casa de sus insoportables tíos el inicio del segundo curso del Colegio Hogwarts de Magia. Sin embargo, la espera dura poco, pues un elfo aparece en su habitación y le advierte que una amenaza mortal se cierne sobre la escuela...</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:1</center></dt>
+            </dl>
+            <center><a href="PDF\libro1.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+
+        <div class="article">
+            <h2>The Legend of Zelda: Hyrule Historia</h2>
+            <img src="image\51mndELbC0L._AC_UL600_SR600,600_.jpg" width= 30% alt="The Legend of Zelda: Hyrule Historia">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Su trama por lo general describe las heroicas aventuras del joven guerrero Link, que debe enfrentarse a peligros y resolver acertijos para ayudar a la Princesa Zelda a derrotar a Ganondorf y salvar su hogar, el reino de Hyrule.</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:2</center></dt>
+            </dl> 
+            <center><a href="PDF\libro2.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+
+        <div class="article">
+            <h2>Persona 5</h2>
+            <img src="image\71GDIbK1E2L._AC_UF894,1000_QL80_.jpg" width= 30% alt="Persona 5">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Sigue la historia de Ren Amamiya, un estudiante de secundaria transferido a la Academia Shujin en Tokio. Injustamente acusado de un crimen que no cometió, Ren es expulsado de su escuela anterior y puesto en libertad condicional, Ren y sus amigos descubren un mundo alterno conocido como "Palacio", donde las personas corruptas tienen su lado oscuro manifestado como Palacios. Utilizando un smartphone especial y sus "Personas", manifestaciones físicas de su voluntad interior, el grupo se embarca en misiones para robar los "tesoros" de estas personas corruptas y forzarlas a confesar sus pecados en el mundo real.</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:3</center></dt>
+            </dl> 
+            <center><a href="PDF\libro3.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+
+        <div class="article">
+            <h2>Percy Jackson y el ladrón del Rayo</h2>
+            <img src="image\percy.jpg" width= 30% alt="Percy Jackson y el ladrón del Rayo">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Percy Jackson es un auténtico imán para los desastres y tiene problemas en el instituto -pero ése es el menor de sus retos-. Estamos en el siglo XXI pero los dioses del Olimpo parecen haberse escapado de las páginas del libro de texto de Percy sobre mitología griega para colarse en su vida...</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:4</center></dt>
+            </dl> 
+            <center><a href="PDF\libro4.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+
+        <div class="article">
+            <h2>La Chica del Tren</h2>
+            <img src="image\254924_portada_la-chica-del-tren_paula-hawkins_201702281633.jpg" width= 30% alt="La Chica del Tren">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Rachel toma siempre el tren de las 8.04 h. Cada mañana lo mismo: el mismo paisaje, las mismas casas… y la misma parada en la señal roja. Son solo unos segundos, pero le permiten observar a una pareja desayunando tranquilamente en su terraza...</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:5</center></dt>
+            </dl> 
+            <center><a href="PDF\libro5.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+
+        <div class="article">
+            <h2>La tierra bajo tus pies</h2>
+            <img src="image\portada_la-tierra-bajo-tus-pies.webp" width= 30% alt="La Tierra Bajo tus Pies">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Madrid, 1935. Cati es una joven cuya vida transcurre entre fiestas y tertulias en los cafés, hasta que la tragedia la golpea. Mientras busca su lugar en el mundo, el encuentro con una amiga de la infancia y con Manuel Bartolomé Cossío marcará su destino. Con las Misiones Pedagógicas, que llevaban la cultura a donde parecía imposible que llegara, viajará a un pueblo recóndito y, alojada en la humilde casa de los Salazar, Cati iniciará una relación con los miembros de la familia: Paciana, una viuda curtida en la venganza; su hijo, Fabián, apodado el Murciélago, y su hermano, Jeremías, un hombre maldito, por quien sentirá un amor inesperado. Su estancia le abrirá los ojos a otra forma de vida, regida por los designios del campo y las estaciones. Pero también se verá implicada en una vieja deuda de sangre y odio.</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:6</center></dt>
+            </dl> 
+            <center><a href="PDF\libro6.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+
+        <div class="article">
+            <h2> El arte de ser nosotros</h2>
+            <img src="image\portada_el-arte-de-ser-nosotros_inma-rubiales_202212231040.webp" width= 30% alt="El arte de ser nosotros">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>La vida no es justa, y eso Logan lo sabe muy bien. Después de una dolorosa pérdida, su corazón se ha vuelto hermético, frío e inquebrantable. Por eso no le importa que todos crean que es el malo de la historia. Leah nunca se ha sentido la protagonista de la suya. Vive con la cabeza enterrada en los libros, intentando pasar desapercibida, y se refugia en la gran comunidad de lectores que tiene en internet. Leah no es el tipo de chica que Logan está buscando. Y Logan es la clase de chico que Leah trata de evitar. Quizá por eso lo que hay entre ellos funciona tan bien.</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:7</center></dt>
+            </dl> 
+            <center><a href="PDF\libro7.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+
+        <div class="article">
+            <h2>Metro 2033 (NE)</h2>
+            <img src="image\portada_metro-2033.webp" width= 30% alt="Metro 2033 (NE)">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Año 2033, Moscú. Los supervivientes de la terrible guerra nuclear que ha devastado el mundo se han refugiado bajo tierra, en la red del metro. En cada una de las estaciones, convertidas en pequeñas ciudades Estado, sus habitantes se agrupan en torno a las más diversas ideologías, religiones o movidos por un único objetivo: impedir una invasión de las criaturas mutantes del exterior.</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:8</center></dt>
+            </dl> 
+            <center><a href="PDF\libro8.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+
+        <div class="article">
+            <h2>Un legado de sangre</h2>
+            <img src="image\portada_un-legado-de-sangre.webp" width= 30% alt="Un legado de sangre">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Como una adaptación maravillosa y oscura de Drácula, Un legado de sangre es una saga sobre la obsesión, el deseo y los límites que estamos dispuestos a cruzar para proteger a quienes queremos.
+                    Cuando un misterioso desconocido la salva de las garras de la muerte, Constanta se ve transformada de una campesina medieval a una novia digna de un rey eterno. Pero cuando Drácula atrae a una aristócrata ingeniosa y a un artista famélico hacia su red de pasión y mentiras, Constanta comprende que su amado es capaz de lo peor.
+                    Tras hallar consuelo en los brazos de sus consortes rivales, comenzará a desentrañar los oscuros secretos de su marido. Con la vida de sus seres queridos en juego, Constanta deberá escoger entre su propia libertad y su amor por su marido. Pero los vínculos formados por la sangre solo se pueden romper con la muerte</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:9</center></dt>
+            </dl> 
+            <center><a href="PDF\libro9.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+
+        <div class="article">
+            <h2>Cuentos de buenas noches para niñas rebeldes</h2>
+            <img src="image\niñasrebe.webp" width= 30% alt="Cuentos de buenas noches para niñas rebeldes">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Cuentos de buenas noches para niñas rebeldes reinventa los cuentos de hadas. Elizabeth I, Coco Chanel, Marie Curie, Frida Kahlo, Serena Williams y otras mujeres extraordinarias narran la aventura de su vida, inspirando a niñas ―y no tan niñas― a soñar en grande y alcanzar sus sueños; además, cuenta con las magníficas ilustraciones de sesenta...</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:10</center></dt>
+            </dl> 
+            <center><a href="PDF\libro10.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+
+        <div class="article">
+            <h2>Hábitos atómicos</h2>
+            <img src="image\l9786077476719.webp" width= 30% alt="Hábitos atómicos">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>HÁBITOS ATÓMICOS parte de una simple pero poderosa pregunta: ¿Cómo podemos vivir mejor? Sabemos que unos buenos hábitos nos permiten mejorar significativamente nuestra vida, pero con frecuencia nos desviamos del camino: dejamos de hacer ejercicio, comemos mal, dormimos poco, despilfarramos. ¿Por qué es tan fácil caer en los malos hábitos y tan complicado seguir los buenos?. James Clear nos brinda fantásticas ideas basadas en investigaciones científicas, que le permiten revelarnos cómo podemos transformar pequeños hábitos cotidianos para cambiar nuestra vida y mejorarla.</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:11</center></dt>
+            </dl> 
+            <center><a href="PDF\libro11.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+
+        <div class="article">
+            <h2>Mi planta naranja lima</h2>
+            <img src="image\l9786078577163.webp" width= 30% alt="Mi planta naranja lima">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Una novela clásica que combina la crudeza de una situación de miseria, incomprensión y ternura de la infancia, cómo observa al mundo con una mirada limpia. Mi planta de naranja-lima relata la historia de un niño que un día, de pronto, descubre el dolor y se hace adulto precozmente. Las ensoñaciones, la picardía, el sufrimiento y la ternura del protagonista atraerán al lector desde las primeras páginas.</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:12</center></dt>
+            </dl> 
+            <center><a href="PDF\libro12.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+
+        <div class="article">
+            <h2>El perro de los Baskerville</h2>
+            <img src="image\sherlock.webp" width= 30% alt="El perro de los Baskerville">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Una de las más populares aventuras del detective privado Sherlock Holmes. Holmes y Watson son llamados a investigar los extraños crímenes aparentemente relacionados con una antigua maldición que pesa sobre la familia de los Baskerville. El famoso detective se verá envuelto en un laberinto de antiguas supersticiones y oscuras venganzas, dentro del escenario amenazador de los páramos de Dartmoor (Inglaterra).</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:13</center></dt>
+            </dl> 
+            <center><a href="PDF\libro13.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center><
+        </div>
+
+        <div class="article">
+            <h2>Encuéntrame en Moonlight</h2>
+            <img src="image\content.jpg" width= 30% alt="Encuéntrame en Moonlight">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Birdie Lindberg, aficionada a los libros de misterio, tiene una imaginación desbordante. Sus abuelos la criaron en soledad y la educaron en su casa, por lo que ha cultivado una inusual vida de fantasía en la que ella adopta el papel de una detective heroica y cada extraño se convierte en un sospechoso. ... </dd>
+            </dl>
+            <dl>
+                <dt><center>ID:14</center></dt>
+            </dl> 
+            <center><a href="PDF\libro14.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center><
+        </div>
+
+        <div class="article">
+            <h2>Sentido y sensibilidad</h2>
+            <img src="image\sens.webp" width= 30% alt="Sentido y sensibilidad">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Tras la muerte repentina del padre, la familia Dashwood queda desamparada. La novela sigue los avatares de esta familia, orientando la atención especialmente hacia las peripecias de sus dos hermanas mayores, que encarnan posturas vitales diametralmente opuestas: Si Elinor representa el sentido común y la razón, Marianne actúa impulsada por el sentimiento y la emoción. Los escollos que estas dos muchachas casaderas han de salvar en sus desventuras amorosas les enseñan que quizás un virtuoso equilibrio entre ambas actitudes es la única forma de salvarse. Sentido y Sensibilidad, la primera novela que Austen publicó, esboza un retrato fidedigno de la situación de la mujer a finales del siglo XVIII.</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:15</center></dt>
+            </dl> 
+            <center><a href="PDF\libro15.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center><
+        </div>
+
+        <div class="article">
+            <h2>Orgullo y Prejuicio</h2>
+            <img src="image\prejuicio.jpeg" width= 30% alt="Orgullo y Prejuicio">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Orgullo y prejuicio de Jane Austen es una novela que cuenta las aventuras y desventuras amorosas de las hermanas Bennet, centrándose en el personaje de Elizabeth. La historia se desarrolla en la campiña inglesa de finales del siglo XVIII y muestra cómo la llegada de un joven y rico hacendado, Charles Bingley, y su amigo Fitzwilliam Darcy, revoluciona la pequeña sociedad de pretendientes. La presencia de los dos jóvenes desencadena un torrente de pasiones que alcanzará también a Elizabeth Bennet, centro de toda la historia.</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:16</center></dt>
+            </dl> 
+            <center><a href="PDF\libro16.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center><
+        </div>
+
+        <div class="article">
+            <h2>La vuelta al mundo en ochenta días</h2>
+            <img src="image\97.webp" width= 30% alt="La vuelta al mundo en ochenta días">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd> La vuelta al mundo en 80 días de Julio Verne es una novela de aventuras que cuenta la historia de Phileas Fogg, un caballero inglés que apuesta a dar la vuelta al mundo en 80 días utilizando los medios de transporte disponibles en 1872. Fogg y su criado Passepartout deben enfrentarse a obstáculos y al paso del tiempo durante su viaje.</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:17</center></dt>
+            </dl> 
+            <center><a href="PDF\libro17.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center><
+        </div>
+
+        <div class="article">
+            <h2>Ángeles y demonios</h2>
+            <img src="image\sisisi.webp" width= 30% alt="Ángeles y demonios">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd> Ángeles y demonios es una novela de suspenso e intriga escrita por Dan Brown y publicada en 2000. En ella, el profesor de simbología religiosa Robert Langdon es convocado a un centro de investigación suizo para analizar un misterioso símbolo grabado a fuego en el pecho de un físico asesinado. Langdon llega a la conclusión de que los Illuminati, una organización clandestina centenaria, han regresado y están a punto de destruir la Iglesia con una bomba escondida en el corazón de la Ciudad del Vaticano.</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:18</center></dt>
+            </dl> 
+            <center><a href="PDF\libro18.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+
+        <div class="article">
+            <h2>Mujercitas</h2>
+            <img src="image\muj.jpg" width= 30% alt="Mujercitas">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd> Mujercitas es una novela escrita por Louisa May Alcott en 1868 que cuenta la historia de cuatro hermanas adolescentes, Meg, Jo, Beth y Amy, que intentan entenderse a sí mismas y lo que significa crecer siendo mujer. La novela se desarrolla durante la Guerra de Secesión norteamericana y muestra cómo las hermanas March afrontan momentos difíciles con fortaleza y dignidad.</dd>
+            </dl>
+            <dl>
+                <dt><center>ID:19</center></dt>
+            </dl> 
+            <center><a href="PDF\libro19.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+    </div>
+
+    <article id="post-1">
+    <center>
+    <button id="btn-recomendaciones">Ver más recomendaciones</button>
+    </center>
+
+
+    <!-- Contenedor de recomendaciones -->
+    <center>
+    <div id="recomendaciones-container" style="display: none;">
+        <h2>Recomendaciones</h2>
+        <div class="article">
+            <h2>Las memorias de Sherlock Holmes</h2>
+            <img src="image\sherl.webp" width= 30% alt="Las memorias de Sherlock Holmes">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd> El ingenioso Sherlock Holmes, con la ayuda del doctor Watson, se enfrenta a algunos de sus casos más endiabladamente complicados. Holmes y Watson se ven envueltos en diversos sucesos en Inglaterra, que van desde un misterio que involucra a un caballo de carreras perdido hasta su encuentro en las cataratas de Reichenbach con el archienemigo de Sherlock, el malvado profesor Moriarty.</dd>
+            </dl>
+            <center><a href="PDF\libro20.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+        <div class="article">
+            <h2>Auschwitz, última parada</h2>
+            <img src="image\aust.webp" width= 30% alt="Auschwitz, última parada">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd> Eddy de Wind llega a Auschwitz en 1943 junto a su esposa Friedel. Él es médico y ella enfermera. Allí son separados. Ella queda entre los presos destinados a los crueles experimentos médicos del Dr. Mengele; él al cuidado de los prisioneros políticos polacos. Cuando la guerra está perdida y los nazis huyen del campo con los presos que sobreviven (entre ellos su mujer), Eddy decide esconderse y esperar la llegada de los rusos. Permanece por un tiempo con ellos en el campo y allí empieza a escribir Auschwitz, última parada, donde describe la rutina diaria, las atrocidades de las que ha sido testigo y víctima y la liberación por los rusos. Pero en su texto muestra también su amor y deseo hacia Friedel.</dd>
+            </dl>
+            <center><a href="PDF\libro21.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+        <div class="article">
+            <h2>Hubble: la expansión del universo. El cosmos se hace mayor</h2>
+            <img src="image\hubb.webp" width= 30% alt="Hubble: la expansión del universo. El cosmos se hace mayor">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd> *Hubble: la expansión del universo. El cosmos se hace mayor* es un libro de Eduardo Battaner López publicado en 2016 por RBA Coleccionables. El libro es parte de la colección Grandes Ideas de la Ciencia y tiene 167 páginas, ilustraciones y gráficos. 
+                </dd>
+            </dl>
+            <center><a href="PDF\libro22.pdf" download>
+                <button class="download-btn">Descargar PDF</button>
+            </a></center>
+        </div>
+    </div>
+</center>
+    <center>
+        <button onclick="cambiarRecomendaciones()">Cambiar Recomendaciones</button>
+        <button onclick="verMasLibros()">Ver Más Libros Recomendados</button>
+        <button onclick="noMeInteresa()">No me Interesa</button>
+        </center>
+
+    <div class="saga-container">
+        <div class="saga">
+            <div class="saga-details">
+                <h2>Autores recomendados</h2>
+                <ul>
+                <li><a href="https://es.wikipedia.org/wiki/George_R._R._Martin" target="_blank">George R.R. Martin</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/J._K._Rowling" target="_blank">J.K. Rowling</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Ursula_K._Le_Guin" target="_blank">Ursula K. Le Guin</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Terry_Pratchett" target="_blank">Terry Pratchett</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Lewis_Carroll" target="_blank">Lewis Carroll</a></li>
+        </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="saga-container">
+        <div class="saga">
+            <div class="saga-details">
+                <h2>Sagas recomendadas</h2>
+                <ul>
+                <li><a href="https://es.wikipedia.org/wiki/Star_Wars" target="_blank">Star Wars</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/El_silencio_de_la_ciudad_blanca" target="_blank">Trilogía de la Ciudad Blanca</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Game_of_Thrones" target="_blank">Juego de tronos</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Harry_Potter" target="_blank">Harry Potter</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/El_se%C3%B1or_de_los_anillos" target="_blank">El señor de los anillos</a></li>
+                <li><a href="https://es.wikipedia.org/wiki/Saga_Millennium" target="_blank">Millennium</a></li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+
+</article>
+
+        <article id="post-2">
+        <h2 class="fam"> Libros más famosos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre del libro</th>
+                    <th>Género</th>
+                    <th>Sinopsis</th>
+                    <th>Reseña de lectores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="https://es.wikipedia.org/wiki/Biblia" target="_blank">La Biblia</a></td>
+                    <td>Libro Sagrado</td>
+                    <td>La Biblia es un conjunto de libros canónicos que en el cristianismo y en otras religiones se consideran producto de inspiración divina y un reflejo o registro de la relación entre Dios y la humanidad.</td>
+                    <td>El propósito principal de la Biblia es enseñarnos el camino de la salvación. Los creyentes cristianos consideran que la Biblia es la principal fuente de fe y doctrina en Cristo.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://es.wikipedia.org/wiki/Don_Quijote_de_la_Mancha" target="_blank">Don Quijote de la Mancha</a></td>
+                    <td>Novela</td>
+                    <td>Don Quijote de la Mancha es una novela escrita por el español Miguel de Cervantes Saavedra. Publicada su primera parte con el título de El ingenioso hidalgo don Quijote de la Mancha a comienzos de 1605, es la obra más destacada de la literatura española y una de las principales de la literatura universal.</td>
+                    <td>Más allá de lo que se ha dicho, Don Quijote de la Mancha se nos muestra como un texto que orienta la moral y la ética. Hace referencia a la teoría aristotélica de la medianía de los valores y hasta copia de Platón el significado de justicia. Es memorable el conjunto de consejos que le da a Sancho para que gobierne con virtud. Es muy ameno y muy cristiano, aun cuando algunas muestras de superstición de la Iglesia Católica son despreciadas y antepone la palabra del Evangelio.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://es.wikipedia.org/wiki/El_Principito" target="_blank">El Principito</a></td>
+                    <td>Literatura Infantil</td>
+                    <td>Fábula mítica y relato filosófico que interroga acerca de la relación del ser humano con su prójimo y con el mundo, El Principito concentra, con maravillosa simplicidad, la constante reflexión de Saint-Exupery sobre la amistad, el amor, la responsabilidad y el sentido de la vida.</td>
+                    <td>Durante toda mi adolescencia, llevé “El Principito” en mi bolso como si de un libro de valores se tratara, llegué a regalarlo tantas veces, como a comprarlo. Lo sentía mío. En términos de comprensión del mundo. Los adultos no podían entrar en mi mundo, como tampoco lo hacían en el del pequeño príncipe.
+                    Pero jamás pensé en el libro como un cuento, o un relato para niños. Más bien lo vivía como una filosofía de vida. La creatividad, la comunicación, la alegría, estaban en la vida si uno se tomaba el trabajo de ser optimista con ella.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://es.wikipedia.org/wiki/Historia_de_dos_ciudades_(novela)" target="_blank">Historia de dos ciudades</a></td>
+                    <td>Novela</td>
+                    <td>La historia transcurre entre dos ciudades, Londres y París, durante la época de la Revolución Francesa. La indiferencia de Dickens por la política y su desprecio por los políticos alejan la novela de cualquier debate político o filosófico sobre la revolución.</td>
+                    <td>Es una maravilla de NOVELA con uno de los comienzos más hermosamente brillantes de todos los tiempos de la literatura universal.
+                    Un clásico que tiene que estar en la biblioteca de todo quien se precie buen lector (o lectora).</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">Información General</td>
+                </tr>
+            </tfoot>
+        </table>
+    </article>
+    <div class="bottom-btn-container">
+        <a href="\Proyecto_ADRIAN\proyecto\inicio\inicio.html" class="back-btn">Volver</a>
+      </div>
+    <footer>
+        <p>&copy; 2024 Derechos reservados. Desarrollado por BookHaven</p>
+        <div class="center-links">
+            <a href="\Proyecto_ADRIAN\proyecto\piedp.html\condicionesuso.html">Condiciones de uso</a>
+            <a href="\Proyecto_ADRIAN\proyecto\piedp.html\preguntas.html">Preguntas frecuentes</a>
+            <a href="\Proyecto_ADRIAN\proyecto\piedp.html\protecciondatos.html">Politica de proteccion de datos</a>
+            <a href="\Proyecto_ADRIAN\proyecto\piedp.html\aviprivacidad.html">Aviso de privacidad</a>
+        </div>
+    </footer>
+    <script>
+        // Función para mostrar/ocultar el contenedor de recomendaciones
+        const btnRecomendaciones = document.getElementById('btn-recomendaciones');
+        const recomendacionesContainer = document.getElementById('recomendaciones-container');
+        btnRecomendaciones.addEventListener('click', () => {
+            if (recomendacionesContainer.style.display === 'none') {
+                recomendacionesContainer.style.display = 'block';
+            } else {
+                recomendacionesContainer.style.display = 'none';
+            }
+        });
+
+        // Funciones para cambiar las recomendaciones
+        function cambiarRecomendaciones() {
+            const recomendacionesContainer = document.getElementById('recomendaciones-container');
+
+            const nuevasRecomendaciones = `
+            <div class="article">
+            <h2>Alas de hierro (Empíreo 2)</h2>
+            <img src="image/alas.webp" width="30%" alt="Alas de hierro (Empíreo 2)">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>En el primer año algunos pierden la vida. En el segundo año, los que sobrevivimos perdemos la compasión. Xaden Riorson. Todos esperaban que Violet Sorrengail muriera en su primer año en el Colegio de Guerra de Basgiath, incluso ella misma. Pero la Trilla fue tan solo la primera de una serie de pruebas imposibles destinadas a deshacerse de los pusilánimes, los indignos y los desafortunados. Ahora comienza el verdadero entrenamiento y Violet no sabe cómo logrará superarlo. No solo porque es brutal y agotador ni porque está diseñado para llevar al límite el umbral del dolor de los jinetes, sino porque el nuevo vicecomandante está empeñado en demostrar a Violet lo débil que es a menos que traicione al hombre que ama. Aunque el cuerpo de Violet es más frágil que el de sus compañeros, su fuerza radica en su ingenio y voluntad de hierro. Además, los líderes están olvidando la lección más importante que Basgiath le ha enseñado los jinetes de dragones crean sus propias reglas. Pero la voluntad por sobrevivir no será suficiente este año, porque Violet conoce el secreto que se oculta entre los muros del Colegio y nada, ni siquiera el fuego de dragón, será suficiente para salvarlos.</dd>
+            </dl>
+            </div>
+            <div class="article">
+            <h2>La maldición del amor verdadero</h2>
+            <img src="image/soso.jpg" width= 30% alt="La maldición del amor verdadero">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Dos villanos, una chica y unabatalla mortal para conseguir un final feliz. Evangeline Fox viajó al Glorioso Norte buscando su «felicespara siempre» y parece que lo ha conseguido: está casada con unatractivo príncipe y vive en un castillo legendario. Pero no tiene niidea del devastador precio que ha pagado por ese cuento de hadas.Desconoce lo que ha perdido y su marido va a asegurarse de que no lodescubra nunca… pero antes debe matar a Jacks, el Príncipe de Corazones. En esta obra, la cautivadora y esperada conclusión de latrilogía Érase una vez un corazón roto, se derramará sangre,se robarán algunos corazones y el amor verdadero será puesto aprueba. Que gane el mejor villano</dd>
+            </dl>
+            </div>
+        `;
+           
+    
+        // Asignar el nuevo contenido al contenedor de recomendaciones
+        recomendacionesContainer.innerHTML = nuevasRecomendaciones;
+        }
+
+
+        // Funciones para ver más libros recomendados
+        function verMasLibros() {
+            // Obtener el contenedor de recomendaciones
+            const recomendacionesContainer = document.getElementById('recomendaciones-container');
+    
+           // Nuevo contenido de recomendaciones adicionales
+           const masRecomendaciones = `
+            <div class="article">
+            <h2>Los Hombres son de Marte, las mujeres son de venus.</h2>
+            <img src="image/las.jpg" width="30%" alt="Los Hombres son de Marte, las mujeres son de venus.">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>A lo largo de generaciones, hombres y mujeres hemos aprendido a comunicarnos, expresar nuestras emociones y reaccionar ante la vida de maneras fundamentalmente diversas. A veces, sí, parece que venimos de planetas distintos. No debería sorprendernos, entonces, que estas diferencias se conviertan en choques explosivos durante una relación de pareja. Basado en la experiencia de John Gray en la práctica psicoterapéutica para parejas e individuos, Los hombres son de Marte, las mujeres son de Venus ha ayudado a millones de lectores a transformar sus relaciones. Se trata de un verdadero clásico moderno que ha guiado a mujeres y hombres a comprender sus particularidades y semejanzas para comunicarse sin conflictos y construir espacios en común más íntimos y duraderos. </dd>
+            </dl>
+            </div>
+            <div class="article">
+            <h2>La reina de espadas</h2>
+            <img src="image/reina.webp" width= 30% alt="La reina de espadas">
+            <dl>
+                <dt>Sinopsis</dt>
+                <dd>Una Elena humana y, por lo tanto, falible y multifacética. Para trazar este magnífico retrato, Jazmina Barrera hila con rigor científico y sentido del humor una colección personal en torno a la escritora: fragmentos de sus obras de teatro, novelas, cuentos, diarios, cartas y entrevistas se trenzan con citas de documentales sobre su vida, algunas carpetas de los Elena Garro Papers del archivo de Princeton, yhasta sesiones de tarot, I Ching y astrología. Aquí no hay certezas ni juicios; lo que hay es el vaivén de una personalidad camaleónica, mirada por los ojos apasionados de una investigadora que se transforma conforme avanzan sus pesquisas. La observación aguda que caracteriza la pluma de Jazmina Barrera se alianza a su infinita curiosidad y a su prodigiosa memoria para regalarnos una serie de instantáneas de una gran escritora del siglo xx. Y al hacerlo, demuestra ser parte de ese mismo linaje. Elena Garro renace con la fuerza de una mirada feminista e inteligente, que resalta su peculiar forma de habitar el mundo y sucapacidad de crearle nuevos sentidos a través de los diversos temas que la obsesionaron: el tiempo, la catástrofe, los gatos, la lu cha campesina, las puestas en escena y los viajes.</dd>
+            </dl>
+            </div>
+        `;
+    
+         // Agregar el nuevo contenido al contenedor de recomendaciones
+        recomendacionesContainer.innerHTML += masRecomendaciones;
+    }
+        
+
+        // Funciones para eliminar recomendaciones
+        function noMeInteresa() {
+            // Obtener el contenedor de recomendaciones
+            const recomendacionesContainer = document.getElementById('recomendaciones-container');
+    
+           // Limpiar el contenido del contenedor de recomendaciones
+        recomendacionesContainer.innerHTML = '';
+        }
+    </script>
+
+
+
+</body>
+</html>

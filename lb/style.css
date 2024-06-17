@@ -1,0 +1,108 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background-color: #bebebe; /* Color de fondo para el área fuera de la portada del libro */
+}
+
+header {
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed; /* Fijar el header en la parte superior */
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Asegurarse de que el header esté por encima de otros elementos */
+}
+
+.book-cover {
+    position: relative;
+    width: 300px; /* Ancho de la portada del libro */
+    height: 450px; /* Alto de la portada del libro */
+    background: url('path/to/your/book-cover-image.jpg') no-repeat center center/cover;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    margin-top: 100px; /* Añadir espacio para el header */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(99, 143, 94); /* Color inicial */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.title {
+    font-size: 1.8em;
+    color: white;
+    margin: 0;
+    padding: 0 10px; /* Añadido para evitar que el texto se salga del borde */
+}
+
+.author {
+    font-size: 1.2em;
+    color: white;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0 10px; /* Añadido para evitar que el texto se salga del borde */
+}
+
+.form-container {
+    position: absolute;
+    bottom: -150px; /* Distancia desde el fondo de la página */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff; /* Fondo del formulario */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}

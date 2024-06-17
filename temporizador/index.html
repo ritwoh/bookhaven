@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conometro</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/jpg" href="image\BookHaven-removebg-preview.png" />
+  </head>
+  <body>
+    <body>
+        <header>
+            <h2>BookHaven</h2>
+            <div class="dark-mode">
+                <div class="circle">
+                    <ion-icon class="sun" name="sunny"></ion-icon>
+                    <ion-icon class="moon" name="moon"></ion-icon>
+                </div>
+            </div>
+        </header>
+
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <h1>Tiempo de lectura/estudio</h1>
+    <figure class="clock">
+      <div class="mins">0</div>
+      <div>:</div>
+      <div class="secs">00</div>
+      <audio
+        src="http://soundbible.com/mp3/service-bell_daniel_simion.mp3"
+      ></audio>
+      <svg class="progress-ring" height="120" width="120">
+        <circle
+          class="progress-ring__circle"
+          stroke-width="8"
+          fill="transparent"
+          r="50"
+          cx="60"
+          cy="60"
+        />
+      </svg>
+    </figure>
+    
+
+    <div class="btn-group">
+      <button class="start">Iniciar</button>
+      <button class="reset">Reiniciar</button>
+      <button class="pause">Pausa</button>
+    </div>
+
+    <form action=".">
+      <label for="focusTime">Tiempo de lectura/estudio</label>
+      <input type="number" value="1" id="focusTime" />
+      <label for="breakTime">Tiempo dedescanso</label>
+      <input type="number" value="1" id="breakTime" />
+      <button type="submit">Guardar</button>
+    </form>
+
+    
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="met.js"></script>
+
+    
+
+    <div class="bottom-btn-container">
+        <a href="\Proyecto_ADRIAN\proyecto\inicio\inicio.html" class="back-btn">Volver</a>
+      </div>
+
+      <div class="containeraudio">
+        <span id="songTitle"></span>
+        <audio></audio>
+    
+        <div id="current_time">0:00</div>
+    
+        <div class="buttons">
+          <button id="prev">
+            <i class="fas fa-backward"></i>
+          </button>
+          <button id="play">
+            <i class="fas fa-play"></i>
+          </button>
+          <button id="next">
+            <i class="fas fa-forward"></i>
+          </button>
+        </div>
+    
+        <div id="current_audio"></div>
+    
+        <div class="progress_container">
+          <div id="progress"></div>
+        </div>
+    
+      </div>
+      
+
+    <script src="js.js"></script>
+    
+    <footer>
+        <p>&copy; 2024 Derechos reservados. Desarrollado por BookHaven</p>
+        <div class="center-links">
+            <a href="C:\xampp\htdocs\Proyecto_ADRIAN\proyecto\piedp.html\condicionesuso.html">Condiciones de uso</a>
+            <a href="C:\xampp\htdocs\Proyecto_ADRIAN\proyecto\piedp.html\preguntas.html">Preguntas frecuentes</a>
+            <a href="C:\xampp\htdocs\Proyecto_ADRIAN\proyecto\piedp.html\protecciondatos.html">Politica de proteccion de datos</a>
+            <a href="C:\xampp\htdocs\Proyecto_ADRIAN\proyecto\piedp.html\aviprivacidad.html">Aviso de privacidad</a>
+        </div>
+    </footer>
+  </body>
+</html>

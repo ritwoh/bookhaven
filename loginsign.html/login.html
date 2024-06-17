@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpg" href="image/BookHaven-removebg-preview.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" integrity="sha512-ZnR2wlLbSbr8/c9AgLg3jQPAattCUImNsae6NHYnS9KrIwRdcY9DxFotXhNAKIKbAXlRnujIqUWoXXwqyFOeIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let age;
+            do {
+                age = prompt("¿Cuántos años tienes? Por favor, ingresa solo números.");
+            } while (age !== null && (!/^\d+$/.test(age) || age === ""));
+            if (age !== null) {
+                console.log("Edad del usuario:", age);
+                // Aquí puedes realizar acciones con la información de la edad si es necesario.
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="form sign_in">
+                <h3>Iniciar Sesión</h3>
+                <span>Usa tu cuenta de BookHaven</span>
+                <form action="login.php" method="post"id="form_input">
+                    <div class="type">
+                        <input type="email" placeholder="Correo Electrónico" name="email" class="email-input" required>
+                    </div>
+                    <div class="type">
+                        <input type="password" placeholder="Contraseña" name="password" class="password-input" required>
+                    </div>
+                    <div class="forgot">
+                        <span>¿Olvidaste la contraseña?</span>
+                    </div>
+                    <button class="btn bkg">Iniciar Sesión</button>
+                    <div class="bottom-btn-container">
+                        <a href="\Proyecto_ADRIAN\proyecto\inicio\inicio.html" class="back-btn">Volver</a>
+                    </div>
+                </form>
+            </div>
+            <div class="form sign_up">
+                <h3>Crear Cuenta</h3>
+                <span>Utiliza tu correo electrónico para registrarte</span>
+                <form action="register.php" method="post" id="form_input">
+                    <div class="type">
+                        <input type="text" placeholder="Tu Nombre" id="name" name="name" required>
+                    </div>
+                    <div class="type">
+                        <input type="email" placeholder="Correo Electrónico" id="email" class="email-input" name="email" required>
+                    </div>
+                    <div class="type">
+                        <input type="password" placeholder="Contraseña" id="password" class="password-input" name="password" required>
+                    </div>
+                    <button class="btn bkg">Crear Cuenta</button>
+                    <div class="bottom-btn-container">
+                        <a href="\Proyecto_ADRIAN\proyecto\inicio\inicio.html" class="back-btn">Volver</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="overlay">
+            <div class="page page_signIn">
+                <h3>¡Bienvenido De Nuevo!</h3>
+                <p>Para seguir con nosotros, inicia sesión con tu información personal.</p>
+                <button class="btn btnSign-in">Registrarse <i class="bi bi-arrow-right"></i></button>
+            </div>
+            <div class="page page_signUp">
+                <h3>¡Hola!</h3>
+                <p>Introduce tus datos personales y comienza tu viaje con nosotros.</p>
+                <button class="btn btnSign-up">
+                    <i class="bi bi-arrow-left"></i> Iniciar Sesión</button>
+            </div>
+        </div>
+    </div>
+    <script src="codigo.js"></script>
+</body>
+</html>

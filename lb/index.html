@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portada del Libro</title>
+    <link rel="icon" type="image/jpg" href="image\BookHaven-removebg-preview.png"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="form-container">
+        <form id="bookForm" action="port.php" method="post">
+            <div class="form-group">
+                <label for="title">Título del Libro:</label>
+                <input type="text" id="title" name="title" placeholder="Introduce el título del libro">
+            </div>
+            <div class="form-group">
+                <label for="author">Autor del Libro:</label>
+                <input type="text" id="author" name="author" placeholder="Introduce el autor del libro">
+            </div>
+            <button type="submit" name="action" value="may">Crear portada(Mayusculas)</button>
+            <button type="submit" name="action" value="min">Crear portada(Minusculas)</button>
+        </form>
+        <div class="form-group">
+            <label for="colorPicker">Selecciona un color:</label>
+            <input type="color" id="colorPicker" name="colorPicker">
+        </div>
+        <button id="changeColorButton">Cambiar color del fondo</button>
+    </div>
+
+    <div class="book-cover">
+        <div class="overlay" id="overlay">
+            <h1 class="title" id="bookTitle">El Título del Libro</h1>
+            <h2 class="author" id="bookAuthor">Autor del Libro</h2>
+        </div>
+    </div>
+    <div class="bottom-btn-container">
+        <br>
+        <a href="\Proyecto_ADRIAN\proyecto\inicio\inicio.html" class="back-btn">Volver</a>
+      </div>
+
+    <script src="por.js"></script>
+    
+</body>
+</html>

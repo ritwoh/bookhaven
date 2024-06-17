@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sagas Literarias</title>
+    <link rel="icon" type="image/jpg" href="image\BookHaven-removebg-preview.png"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0; 
+        }
+        .saga-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .saga {
+            background-color: #bcd7e9;
+            max-width: 300px;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(29, 65, 141, 0.719);
+        }
+        .saga img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .saga h2, .saga p {
+            margin: 0;
+            color: #ffffff;
+        }
+        .btn-back {
+            display: block;
+            width: 120px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        header {
+            background-color: #4466ff;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sagas Literarias</h1>
+    </header>
+
+    <div class="dark-mode">
+        <div class="circle">
+            <ion-icon class="sun" name="sunny"></ion-icon>
+            <ion-icon class="moon" name="moon"></ion-icon>
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="met.js"></script>
+
+
+    <div class="saga-container">
+        <div class="saga">
+            <img src="image/harry_potter_00.jpg" alt="Imagen Saga 1">
+            <div class="saga-details">
+                <h2>Saga de Harry Potter</h2>
+                <p>Autor: J.K. Rowling</p>
+                <p>Género: Fantasía</p>
+                <p>Número de libros: 7</p>
+                <p>Descripción: La historia de un joven mago y su lucha contra el malvado mago, Lord Voldemort.</p>
+            </div>
+        </div>
+
+        <div class="saga">
+            <img src="image\señordelosanillos.jpg" alt="Imagen Saga 2">
+            <div class="saga-details">
+                <h2>Saga de El Señor de los Anillos</h2>
+                <p>Autor: J.R.R. Tolkien</p>
+                <p>Género: Fantasía</p>
+                <p>Número de libros: 3</p>
+                <p>Descripción: La épica historia de la Tierra Media y la lucha por el Anillo Único.</p>
+            </div>
+        </div>
+        
+        <div class="saga">
+            <img src="image\the-lunar-chronicles.jpg" alt="Imagen Saga 3">
+            <div class="saga-details">
+                <h2>Saga de Crónicas Lunares</h2>
+                <p>Autor: Marissa Meyer</p>
+                <p>Género: Ciencia ficción, fantasía</p>
+                <p>Número de libros: 4</p>
+                <p>Descripción: Una serie de novelas que reinventa los cuentos de hadas clásicos en un mundo futurista.</p>
+            </div>
+        </div>
+
+        <div class="saga">
+            <img src="image\imagenasdfasf1.jpg" alt="Imagen Saga 4">
+            <div class="saga-details">
+                <h2>Saga de Maze Runner</h2>
+                <p>Autor: James Dashner</p>
+                <p>Género: Ciencia ficción, distopía</p>
+                <p>Número de libros: 3 (más precuelas)</p>
+                <p>Descripción: Un grupo de jóvenes atrapados en un laberinto mortal mientras intentan descubrir la verdad detrás de su situación.</p>
+            </div>
+        </div>
+        <div class="saga">
+            <img src="image\los-juegos-del-hambre.jpg" alt="Imagen Saga 5">
+            <div class="saga-details">
+                <h2>Saga de Los Juegos del Hambre</h2>
+                <p>Autor: Suzanne Collins</p>
+                <p>Género: Ciencia ficción, distopía</p>
+                <p>Número de libros: 3</p>
+                <p>Descripción: Una sociedad distópica donde jóvenes luchan por sobrevivir en un evento mortal llamado Los Juegos del Hambre.</p>
+            </div>
+        </div>
+    
+        <div class="saga">
+            <img src="image\Eragon-de-christopher-paolini-02.jpg" alt="Imagen Saga 6">
+            <div class="saga-details">
+                <h2>Saga de Eragon</h2>
+                <p>Autor: Christopher Paolini</p>
+                <p>Género: Fantasía</p>
+                <p>Número de libros: 4</p>
+                <p>Descripción: La historia de un joven granjero que descubre que es un Jinete de Dragón y se embarca en una épica aventura para derrotar al malvado rey.</p>
+            </div>
+        </div>
+        <div class="saga">
+            <img src="image\image-1.jpg.jpg" alt="Imagen Saga 7">
+            <div class="saga-details">
+                <h2>Saga de Canción de Hielo y Fuego</h2>
+                <p>Autor: George R.R. Martin</p>
+                <p>Género: Fantasía épica</p>
+                <p>Número de libros: 5 (con más por venir)</p>
+                <p>Descripción: Una serie de novelas ambientadas en el ficticio continente de Poniente, donde varias familias nobles luchan por el control del Trono de Hierro.</p>
+            </div>
+        </div>
+    
+        <div class="saga">
+            <img src="image\bloggg.jpg" alt="Imagen Saga 8">
+            <div class="saga-details">
+                <h2>Saga de Divergente</h2>
+                <p>Autor: Veronica Roth</p>
+                <p>Género: Ciencia ficción, distopía</p>
+                <p>Número de libros: 3 (con una precuela)</p>
+                <p>Descripción: En una sociedad dividida en facciones, una joven descubre que no encaja en ninguna y se convierte en la clave para salvar su mundo.</p>
+            </div>
+        </div>
+       
+        <div class="saga">
+            <img src="image\descarga.jpg" alt="Imagen Saga 9">
+            <div class="saga-details">
+                <h2>Saga de Cazadores de Sombras</h2>
+                <p>Autor: Cassandra Clare</p>
+                <p>Género: Fantasía urbana</p>
+                <p>Número de libros: Más de 10</p>
+                <p>Descripción: Una serie que sigue a los Cazadores de Sombras, guerreros mitad ángeles, mitad humanos, que protegen al mundo de los demonios.</p>
+            </div>
+        </div>
+        
+        <div class="saga">
+            <img src="image\descarga (2).jpg" alt="Imagen Saga 10">
+            <div class="saga-details">
+                <h2>Saga de Percy Jackson y los dioses del Olimpo</h2>
+                <p>Autor: Rick Riordan</p>
+                <p>Género: Fantasía, mitología</p>
+                <p>Número de libros: 5</p>
+                <p>Descripción: Las aventuras de un joven semidiós, hijo de Poseidón, mientras lucha contra criaturas mitológicas y desentraña misterios.</p>
+            </div>
+        </div>
+
+        <div class="saga">
+            <img src="image\saga persona.png" alt="Imagen Saga 10">
+            <div class="saga-details">
+                <h2>Saga Persona</h2>
+                <p>Autor: Shuji Sogabe</p>
+                <p>Género: Acción, aventura, misterio, comedia</p>
+                <p>Número de libros: 30</p>
+                <p>Descripción: Explora las aventuras de jóvenes que luchan contra criaturas sobrenaturales usando sus "Personas" mientras navegan por la vida cotidiana de la escuela secundaria y enfrentan desafíos personales.</p>
+            </div>
+        </div>
+
+        <div class="saga">
+            <img src="image\Orden-cronologico-star-wars.webp" alt="Imagen Saga 10">
+            <div class="saga-details">
+                <h2>Saga Star Wars</h2>
+                <p>Autor: Pablo Hidalgo, Cole Horton y Dan Zehr.</p>
+                <p>Género: Acción, aventura </p>
+                <p>Número de libros: 6</p>
+                <p>Descripción: Las adaptaciones en cómic de toda la saga cinematográfica en un solo volumen. Desde el predestinado encuentro entre Qui-Gon Jinn y Obi-Wan con Darth Maul hasta la victoria de Luke Skywalker contra los Sith y la redención de Darth Vader, todo incluido. Un tomo imprescindible, sin duda, para preparar el camino hacia la nuevo episodio de la saga.</p>
+                </p>
+            </div>
+        </div>
+
+        <div class="saga">
+            <img src="image\NANA.jpeg" alt="Imagen Saga 10">
+            <div class="saga-details">
+                <h2>Saga Nana </h2>
+                <p>Autor: Ai Yazawa.</p>
+                <p>Género: Drama, Ficción musical, Novela rosa </p>
+                <p>Número de libros: 21</p>
+                <p>Descripción: Es una serie de manga escrita e ilustrada por Ai Yazawa. Perteneciente al género Josei, el cual se enfoca en temas amorosos pero dirigido a mujeres ya adultas. Cuenta con 84 capítulos y 21 volúmenes recopilatorios, pero fue puesto en hiato indefinido desde el 2009 debido a que la autora Ai Yazawa cayó enferma.</p>
+                </p>
+            </div>
+        </div>
+
+        <div class="saga">
+            <img src="image\hear.jpg" alt="Imagen Saga 10">
+            <div class="saga-details">
+                <h2>Saga Heartstopper </h2>
+                <p>Autor: Alice Oseman.</p>
+                <p>Género: Adolescencia, Drama, Comedia cinematográfica.</p>
+                <p>Número de libros: 5</p>
+                <p>Descripción: Heartstopper es un webcómic y novela gráfica juvenil escrita e ilustrada por la escritora británica Alice Oseman. La trama gira en torno de Charlie Spring, que tras conocer a Nick Nelson desarrollan una amistad y se enamoran. Inició como webcómic en 2016 y el primer volumen fue autopublicado por Oseman en 201</p>
+                </p>
+            </div>
+        </div>
+
+        <div class="saga">
+            <img src="image\CLUB JUEVES 4.jpg" alt="Imagen Saga 10">
+            <div class="saga-details">
+                <h2>Saga El club del crimen de los jueves   </h2>
+                <p>Autor:  Richard Osman.</p>
+                <p>Género:  Misterio, Ficción.</p>
+                <p>Número de libros: 4</p>
+                <p>Descripción: Una serie de divertidas novelas policíacas protagonizadas por un grupo de octagenarios se ha convertido en un súper fenómeno con 6 millones de lectores. Estos abuelos se dedican a leer novelas de misterio en un club de lectura y, al mismo tiempo, a resolver crímenes en el mundo real. Algo que se les da estupendamente, por cierto. </p>
+            </div>
+        </div>
+
+        <div class="saga">
+            <img src="image\Portada_reseña.jpg" alt="Imagen Saga 10">
+            <div class="saga-details">
+                <h2>Trilogía El Silencio de la Ciudad Blanca</h2>
+                <p>Autor:  Eva García Sáenz de Urturi.</p>
+                <p>Género:  Thriller, Misterio, Suspenso, Ficción.</p>
+                <p>Número de libros: 3</p>
+                <p>Descripción: El silencio de la ciudad blanca es una novela literaria policíaca española de 2016 escrita por Eva García Sáenz de Urturi.​Sáenz de Urturi trabajó de optometrista hasta que decidió dedicarse a la literatura.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <center>
+    <button id="btn-cambiar-colores">Cambiar Color</button>
+    </center>
+    
+
+    <div class="bottom-btn-container">
+        <a href="\Proyecto_ADRIAN\proyecto\inicio\inicio.html" class="back-btn">Volver</a>
+      </div>
+
+    <footer>
+        <p>&copy; 2024 Derechos reservados. Desarrollado por BookHaven</p>
+        <div class="center-links">
+            <a href="\Proyecto_ADRIAN\proyecto\piedp.html\condicionesuso.html">Condiciones de uso</a>
+            <a href="\Proyecto_ADRIAN\proyecto\piedp.html\preguntas.html">Preguntas frecuentes</a>
+            <a href="\Proyecto_ADRIAN\proyecto\piedp.html\protecciondatos.html">Politica de proteccion de datos</a>
+            <a href="\Proyecto_ADRIAN\proyecto\piedp.html\aviprivacidad.html">Aviso de privacidad</a>
+        </div>
+    </footer>
+
+    <script>
+        const btnCambiarColor = document.getElementById('btn-cambiar-colores');
+        const sagaContainers = document.querySelectorAll('.saga');
+    
+        btnCambiarColor.addEventListener('click', function() {
+            sagaContainers.forEach(function(container) {
+                container.style.backgroundColor = '#001f3f'; // Cambiar a azul marino
+                container.style.color = '#ffffff';
+            });
+        });
+    </script>
+    
+</body>
+</html>

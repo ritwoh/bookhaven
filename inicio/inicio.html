@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHaven</title>
+    <link rel="icon" type="image/jpg" href="image\BookHaven-removebg-preview.png"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="ini.css">
+    <style>
+        header {
+            background-color: #4466ff;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.7);
+        }
+
+        th,
+        td {
+            padding: 15px;
+            border: 2px solid #4466ff;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #4466ff;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #e0e0ff;
+        }
+
+        tbody tr:hover {
+            background-color: #c9c9ff;
+        }
+
+        tbody tr:nth-child(odd) td:first-child,
+        tbody tr:nth-child(even) td:last-child {
+            background-color: #0059ff;
+            color: #ffffff;
+        }
+
+        tbody tr:nth-child(even) td:first-child,
+        tbody tr:nth-child(odd) td:last-child {
+            background-color: #0396f8;
+            color: #ffffff;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+            }
+
+            .book-form-container {
+                width: 90%;
+            }
+        }
+        /* Formulario de cálculo de libros */
+.book-form-container {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #b6c3ff;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+}
+
+.book-form h2 {
+    margin-bottom: 15px;
+}
+
+.book-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.book-form input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.book-form button {
+    background-color: #3953a8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.book-form button:hover {
+    background-color: #373888;
+}
+/* Paleta de colores */
+:root {
+    --color-primario: ;
+    --color-secundario: #185abc;
+    --color-terciario: #dce9ff;
+    --color-fondo: #727272;
+    --color-borde: #ccd6f6;
+    --color-texto: #333;
+    --color-placeholder: #888;
+    --color-boton-hover: #154a8b;
+    --color-input-focus: #82aaff;
+}
+
+/* Formulario de cálculo de libros */
+.book-form-container {
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: var(--color-fondo);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    font-family: 'Arial', sans-serif;
+}
+
+.book-form h2 {
+    margin-bottom: 20px;
+    color: var(--color-primario);
+    font-size: 1.75em;
+}
+
+.book-form label {
+    display: block;
+    margin: 15px 0 5px;
+    color: var(--color-texto);
+    font-weight: bold;
+}
+
+.book-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-borde);
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--color-texto);
+    background-color: white;
+    transition: border-color 0.3s ease;
+}
+
+.book-form input[type="number"]::placeholder {
+    color: var(--color-placeholder);
+}
+
+.book-form input[type="number"]:focus {
+    border-color: var(--color-input-focus);
+    outline: none;
+}
+
+.book-form button {
+    background-color: var(--color-primario);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-form button:hover {
+    background-color: var(--color-boton-hover);
+}
+
+.result-container {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: var(--color-texto);
+    background-color: var(--color-terciario);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>BookHaven</h1>
+    </header>
+
+    <div class="esquina">
+        <input type="text" id="searchInput" placeholder="Buscar en la tabla">
+        <div class="btn">
+            <i class="fa fa-search"></i>
+        </div>
+    </div>
+
+    <div class="dark-mode">
+        <div class="circle">
+            <ion-icon class="sun" name="sunny"></ion-icon>
+            <ion-icon class="moon" name="moon"></ion-icon>
+        </div>
+    </div>
+
+    <div class="containeraudio">
+        <span id="songTitle"></span>
+        <audio></audio>
+
+        <div id="current_time">0:00</div>
+
+        <div class="buttons">
+            <button id="prev">
+                <i class="fas fa-backward"></i>
+            </button>
+            <button id="play">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="next">
+                <i class="fas fa-forward"></i>
+            </button>
+        </div>
+
+        <div id="current_audio"></div>
+
+        <div class="progress_container">
+            <div id="progress"></div>
+        </div>
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="met.js"></script>
+    <center>
+        <img id="imagentema" src="image/BookHaven-removebg-preview.png" width="18%" />
+    </center>
+    <nav>
+        <ul class="menu-horizontal">
+            <li><a href="/Proyecto_ADRIAN/proyecto/catalogo/acatalogo.html">Catalogo</a></li>
+            <li><a href="/Proyecto_ADRIAN/proyecto/sagas/sagas.html">Sagas</a></li>
+            <li><a href="/Proyecto_ADRIAN/proyecto/formulario/form.html">Formulario</a></li>
+            <li><a href="/Proyecto_ADRIAN/proyecto\acerca de/acercade.html">Acerca de</a></li>
+            <li>
+                <a href="#">Cuenta</a>
+                <ul class="menu-vertical">
+                    <li><a href="/Proyecto_ADRIAN\proyecto\loginsign.html\login.html">Iniciar sesion</a></li>
+                    <li><a href="/Proyecto_ADRIAN\proyecto\loginsign.html\login.html">Registrarse</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <table>
+        <caption>
+            <h2>¿Qué puedes encontrar en cada sección?</h2>
+        </caption>
+        <thead>
+            <tr>
+                <th>Página</th>
+                <th>¿Qué puedes encontrar?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Inicio</td>
+                <td>En esta página puedes encontrar a qué se dedica nuestra página, y botones de acceso para acceder a nuestro Catálogo, Acerca de o información general, Registro, Inicio de sesión, ¿Qué te pareció nuestra página?</td>
+            </tr>
+            <tr>
+                <td>Catálogo</td>
+                <td>En esta sección encontrarás una parte de nuestro catálogo con los libros más buscados junto a su sinopsis, una recopilación de los autores más famosos y sagas más reconocidas, al igual que una sección de los libros más famosos y reconocidos mundialmente.</td>
+            </tr>
+            <tr>
+                <td>Sagas</td>
+                <td>En esta sección encontraras nuestras sagas disponibles.</td>
+            </tr>
+            <tr>
+                <td>Formulario ¿Qué te pareció esta página?</td>
+                <td>En esta sección registrarás tus opiniones de esta página mediante un formulario.</td>
+            </tr>
+            <tr>
+                <td>Acerca de</td>
+                <td>En esta sección encontrarás información general de los desarrolladores y de la página, teléfonos de contacto y correo.</td>
+            </tr>
+            <tr>
+                <td>Cuenta</td>
+                <td>En esta sección podrás iniciar sesión en la página para la descarga de libros, al igual que en caso de no tener una sesión podrás registrarte en nuestra página.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <center>
+        <h3>¿Necesitas un momento para leer/estudiar?</h3>
+        <a href="\Proyecto_ADRIAN\Proyecto\temporizador\index.html">Presiona aqui</a>
+    </center>
+    <center>
+        <img id="imagenestudio" src="image\librotem.jpg" width="18%" />
+    </center>
+
+    <center>
+        <h3>¿Cuales son los beneficios de la lectura?</h3>
+        <video width="40%" controls>
+            <source src="video/Cuales son los BENEFICIOS DE LA LECTURA.mp4">
+        </video>
+    </center>
+
+    
+      <!-- Formulario de cálculo de libros -->
+    <div class="book-form-container">
+        <form id="book-form" class="book-form">
+            <h2>Calcula cuántos libros puedes leer en un año</h2>
+            <label for="horas_por_dia">¿Cuántas horas lees por día?</label>
+            <input type="number" id="horas_por_dia" name="horas_por_dia" required>
+
+            <label for="paginas_por_hora">¿Cuántas páginas lees por hora?</label>
+            <input type="number" id="paginas_por_hora" name="paginas_por_hora" required>
+
+            <label for="paginas_por_libro">¿Cuántas páginas tiene el libro promedio que lees?</label>
+            <input type="number" id="paginas_por_libro" name="paginas_por_libro" required>
+
+            <button type="button" onclick="enviarFormulario()">Calcular</button>
+        </form>
+        <!-- Aquí se mostrarán los mensajes del PHP -->
+        <div id="result-container" class="result-container"></div>
+    </div>
+
+    <center>
+        <h3>¿Te gustaria hacer un libro?</h3>
+        <a href="/Proyecto_ADRIAN/proyecto/lb/index.html">Comienza por la portada aqui</a>
+    </center>
+
+    <footer>
+        <p>&copy; 2024 Derechos reservados. Desarrollado por BookHaven</p>
+        <div class="center-links">
+            <a href="\Proyecto_ADRIAN\proyecto\piedp.html\condicionesuso.html">Condiciones de uso</a>
+            <a href="\Proyecto_ADRIAN\proyecto\piedp.html\preguntas.html">Preguntas frecuentes</a>
+            <a href="\Proyecto_ADRIAN\proyecto\piedp.html\protecciondatos.html">Politica de proteccion de datos</a>
+            <a href="\Proyecto_ADRIAN\proyecto\piedp.html\aviprivacidad.html">Aviso de privacidad</a>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function enviarFormulario() {
+            var formData = $('#book-form').serialize();
+            $.ajax({
+                type: 'POST',
+                url: 'calculo_libros.php',
+                data: formData,
+                success: function (response) {
+                    $('#result-container').html(response);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

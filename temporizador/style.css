@@ -1,0 +1,440 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap");
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
+}
+header {
+    background-color: #4466ff;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    position: fixed;
+    width: 100vw; /* Cambiado a 100vw para que se ajuste a todo el ancho de la pantalla */
+    top: 0;
+    left: 0; /* Añadido para asegurar que el encabezado comience desde el borde izquierdo */
+    z-index: 1000;
+}
+footer {
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0; /* Añadido para asegurar que el pie de página comience desde el borde izquierdo */
+    width: 100%;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+
+body {
+  transition: background-color 0.5s ease;
+  height: 100vh;
+  padding: 35px;
+
+  background: rgb(243, 243, 243);
+  color: #131313;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+
+h1 {
+  margin: 100px 0 30px;
+  font-weight: 900;
+  font-size: 28px;
+  text-align: center;
+}
+input {
+  transition: 0.5s ease-in-out;
+  margin: 10px 0;
+  font-size: 18px;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.11);
+  border: none;
+}
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+  margin: 35px 0;
+}
+button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  font-size: 18px;
+  transition: 0.5s ease-in-out;
+}
+label {
+  font-size: 12px;
+}
+form {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  max-width: 370px;
+  margin: 5px auto;
+}
+form button {
+  background: rgb(25, 67, 255);
+  width: 100%;
+  margin: 5px 0;
+  color: white;
+}
+.start {
+  background: rgb(116, 106, 255);
+  color: white;
+  border-radius: 30%;
+  border: 2px solid #000;
+}
+.break {
+  background: rgb(116, 116, 116);
+  color: #ffffff;
+  border-radius: 30%;
+  border: 2px solid #000;
+}
+.reset {
+  background: rgb(116, 106, 255);
+  color: #ffffff;
+  border-radius: 30%;
+  border: 2px solid #000;
+}
+.pause {
+  background: rgb(116, 106, 255);
+  color: #ffffff;
+  border-radius: 30%;
+  border: 2px solid #000;
+}
+.resume {
+  background: rgb(116, 116, 116);
+  color: white;
+  border-radius: 30%;
+  border: 2px solid #000;
+}
+.clock {
+  padding: 3px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  height: 30%;
+  font-size: 24px;
+}
+.progress-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.progress-ring__circle {
+  transition: 0.5s;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: rgb(51, 65, 255);
+}
+
+.danger {
+  stroke: rgb(243, 17, 28);
+  animation: pulse 0.9s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: rotate(-90deg) scale(1);
+  }
+  50% {
+    transform: rotate(-90deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(-90deg) scale(0.8);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    display: grid;
+    grid-template-areas:
+      "head head"
+      "clock form"
+      "btns ji";
+  }
+  .btn-group {
+    grid-area: btns;
+    justify-content: center;
+  }
+  .clock {
+    grid-area: clock;
+    height: 100%;
+  }
+  h1 {
+    grid-area: head;
+
+    align-self: center;
+  }
+  form {
+    align-self: center;
+    justify-self: center;
+    grid-area: form;
+    width: 50%;
+    justify-content: space-around;
+  }
+  footer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  form {
+    height: 40%;
+  }
+  footer {
+    position: static;
+  }
+}
+
+
+:root{
+  --dark-mode-width:66px;
+  --dark-mode-height:30px;
+}
+body.dark-mode{ 
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  transition: background-color 0.5s ease;
+}
+body.active{
+  background-color: #2C2C2E;
+}
+.dark-mode{
+  width: var(--dark-mode-width);
+  height: var(--dark-mode-height);
+  display: flex;
+  align-items: center;
+  border-radius: 999px;
+  background-color: #868181;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  transform: translateY(-190%);
+}
+body.active .dark-mode{
+  background-color: white;
+}
+.dark-mode .circle{
+  width: 40%;
+  height: 80%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  transform: translateX(10%);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s ease,background-colo 0.5s ease;
+}
+body.active .circle{
+  transform: translateX(140%);
+  background-color: #2A2A2C;
+}
+.dark-mode .circle ion-icon{
+  width: 70%;
+  height: 70%;
+  position: absolute;
+  transition: transform 0.5s ease;
+}
+.dark-mode .circle .moon{
+  color: white;
+  transform: translateY(-120%);
+}
+body.active .circle .moon{
+  transform: translateX(0);
+}
+.dark-mode .circle .sun{
+  color: #FCDE5B;
+}
+body.active .circle .sun{
+  transform: translateY(120%);
+}
+/*cambio de colores dark mode*/
+body.active table caption {
+    color: #ffffff; 
+}
+body.active h1 {
+    color: #ffffff; 
+}
+body.active nav {
+    background-color: #000000; 
+}
+body.active footer {
+    background-color: #000000; 
+}
+body.active label {
+    color: white; /* tiquetas */
+}
+
+body.active input {
+    background-color: rgba(255, 255, 255, 0.2); /*inputs */
+    color: white; 
+}
+
+body.active button {
+    color: white; /*botón*/
+}
+body.active .clock {
+    color: white; /* texto temporizador */
+}
+body.active .back-btn {
+    background-color: #2A2A2C; /* texto temporizador */
+}
+
+
+.bottom-btn-container {
+    position: fixed;
+    bottom: 80px; /* Ajusta la distancia vertical del fondo según sea necesario */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .back-btn {
+    background: #fff; /* color de fondo */
+    color: rgb(25, 67, 255);; /* color de fuente */
+    border: 2px solid rgb(25, 67, 255);; /* tamaño y color de borde */
+    padding: 16px 20px;
+    border-radius: 3px; /* redondear bordes */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  .back-btn:hover {
+    color: #fff; /* color de fuente hover */
+  }
+  
+  .back-btn::after {
+    content: "";
+    background: rgb(25, 67, 255);; /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    left: 0;
+    right: 0;
+    top: -100%;
+    bottom: 100%;
+    transition: all 0.35s;
+    transition: all 0.35s;
+  }
+  
+  .back-btn:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.35s;
+    transition: all 0.35s;
+  }
+  
+  /*Reproductor */
+.containeraudio body {
+  position:fixed;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  background-color: #5e5a5a;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+}
+.containeraudio {
+  background-color: rgb(118, 118, 126);
+  border-radius: 20px;
+  width: 150px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: rgb(255, 255, 255);
+  bottom: -65px;
+  transform: translateX(-65%);
+}
+ #songTitle {
+  position: absolute;
+  top: -1px;
+  text-align: center;
+  font-size: 14px;
+  margin: 0;
+}
+.containeraudio .progress_container {
+  position: absolute;
+  bottom: 5px;
+  width: 43%;
+  max-width: 150px;
+  height: 5px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.containeraudio #progress {
+  background-color: rgb(184, 189, 255);
+  width: 0;
+  height: 5%;
+}
+.containeraudio #current_time {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  font-size: 14px;
+}
+.containeraudio #current_audio {
+  position: absolute;
+  top: 40%;
+  right: 10%;
+  font-size: 14px;
+}
+.containeraudio .buttons button {
+  cursor: pointer;
+  font-size: 5px; /* Tamaño del icono */
+  padding: 3px;
+} 
+nav {
+  max-width: 900px;
+  margin: auto;
+  background-color: #333;
+  font-size: 20px;
+  margin-top: 50px;
+}
+/* Media Queries */
+@media (max-width: 768px) {
+  table {
+      width: 100%;
+  }
+}
